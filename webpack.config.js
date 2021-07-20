@@ -40,7 +40,14 @@ module.exports = {
         test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
         loader: 'file-loader',
         options: {
-          name: path.posix.join('static', 'img/[name].[ext]?[hash]')
+          name: path.posix.join('static', 'img/[name].[hash:7].[ext]')
+        }
+      },
+      {
+        test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+        loader: 'file-loader',
+        options: {
+          name: path.posix.join('static', 'fonts/[name].[hash:7].[ext]')
         }
       }
     ]
