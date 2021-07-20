@@ -5,7 +5,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, './dist'),//输出路径，就是上步骤中新建的dist目录
-    publicPath: '/dist/',//路径
+    publicPath: '/',//路径
 
     filename: 'qscrollload.js',//打包之后的名称
     library: 'qscrollload', // 指定的就是你使用require时的模块名
