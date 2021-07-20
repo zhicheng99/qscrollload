@@ -36,13 +36,13 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/
       },
-      {
-        test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
-        loader: 'file-loader',
-        options: {
-          name: path.posix.join('static', 'img/[name].[hash:7].[ext]')
-        }
-      },
+      // {
+      //   test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+      //   loader: 'file-loader',
+      //   options: {
+      //     name: path.posix.join('static', 'img/[name].[hash:7].[ext]')
+      //   }
+      // },
       {
         test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
         loader: 'file-loader',
