@@ -66,8 +66,8 @@
 
 					  		if(this.refreshFun){
 								return {
-				                    threshold : 30,
-				                    stop : 30
+				                    threshold : 20,
+				                    stop : 40
 				                }
 					  		}else{
 					  			return null;
@@ -85,7 +85,6 @@
 
 
 					  	 this.scroll.on('touchEnd',(pos)=>{
-					  	 	this.touched = false;
 
 					   		if(this.showRefresh){
 
@@ -116,27 +115,41 @@
 
 						this.scroll.on('scrollEnd',pos=>{
 
-							// console.log('scrollEnd')
-						  	//滚动完毕后 如果刷新的提示显示 且还没有请求刷新的接口 那就直接请求
-						  	if(this.showRefresh && !this.refreshing){
-						  		this.refreshing = true;
 
-					   			setTimeout(()=>{
+							if(this.refreshing){
+					   			return false;
+					   		}
+							
 
-						   			this.refreshFun && this.refreshFun().then(()=>{
+							setTimeout(()=>{
+								 
+
+								//滚动完毕后 如果刷新的提示显示 且还没有请求刷新的接口 那就直接请求
+							  	if(this.showRefresh && !this.refreshing){
+							  		this.refreshing = true;
+
+						   			// setTimeout(()=>{
+
+							   			this.refreshFun && this.refreshFun().then(()=>{
 
 
-						   				this.showRefresh = false;
-							   			this.refreshing = false;
+							   				this.showRefresh = false;
+								   			this.refreshing = false;
 
 
-										this.scroll.refresh();
+											this.scroll.refresh();
 
 
-						   			});
+							   			});
 
-					   			},200)
-						  	}
+						   			// },200)
+							  	}
+
+							},1000)
+
+
+
+						  	
 						})
 
 					  }
@@ -154,10 +167,10 @@
 					  this.scroll.on('scroll', pos=> {
 					  	
 
-					  	if(this.refreshFun){  
+					  		//配置了刷新函数 且提示没有显示
+					  	if(this.refreshFun && !this.refreshing){  
 
-					  		//配置了刷新函数 且提示没有显示 且手指还没有离开
-						  	if(pos.y > 30 && !this.showRefresh){
+						  	if(pos.y >= 20){
 				                this.showRefresh = true;
 				            }
 					  	}
@@ -210,5 +223,8 @@
 	width: 100%;
 	left:0;
 	top:10px;
+	text-align: center;
+	font-size:12px;
+	color: #666
 }
 </style>

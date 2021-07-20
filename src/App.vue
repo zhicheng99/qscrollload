@@ -1,7 +1,7 @@
 <template>
   <div id="app">
 
-    
+    滚动
     <div class="lay">
 
       <qscrollload>
@@ -38,8 +38,48 @@
           
         </div>
 
+      </qscrollload>    
+    </div>
+
+    下拉刷新
+    <div class="lay">
+      <qscrollload
+       v-bind:refresh-fun="refreshFun"
+       >
+        
+        <div>
+          fsfsfdsds<br>
+          fsfsfdsds<br>
+          fsfsfdsds<br>
+          fsfsfdsds<br>
+          fsfsfdsds<br>
+          fsfsfdsds<br>fsfsfdsds<br>
+          fsfsfdsds<br>
+          fsfsfdsds<br>
+          fsfsfdsds<br>
+          fsfsfdsds<br>
+          fsfsfdsds<br>
+          fsfsfdsds<br>
+          fsfsfdsds<br>fsfsfdsds<br>
+          fsfsfdsds<br>
+          fsfsfdsds<br>
+          fsfsfdsds<br>
+          fsfsfdsds<br>
+          fsfsfdsds<br>
+          fsfsfdsds<br>
+          fsfsfdsds<br>fsfsfdsds<br>
+          fsfsfdsds<br>
+          fsfsfdsds<br>
+          fsfsfdsds<br>
+          fsfsfdsds<br>
+          fsfsfdsds<br>
+          fsfsfdsds<br>
+          fsfsfdsds<br>fsfsfdsds<br>
+          fsfsfdsds<br>
+          
+        </div>
+
       </qscrollload>
-      
     </div>
 
   <test></test>
@@ -64,6 +104,18 @@ export default {
     }
   },
   methods: { 
+    refreshFun:function(){
+
+      return new Promise((resolve,reject)=>{
+
+
+          setTimeout(()=>{
+            resolve('ok');
+          },2000)
+
+      })
+
+    },
     save:function(json){
 
       console.log(json);
@@ -78,6 +130,7 @@ export default {
     width: 200px;
     height: 400px;
     position: relative;
+    background-color: #eee;
   }
 
 </style>
