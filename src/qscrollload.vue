@@ -19,6 +19,9 @@
 	import { Icon } from 'element-ui';
 	Vue.use(Icon)
 
+import '../node_modules/element-ui/lib/theme-chalk/icon.css'
+
+
 	export default{
 		components:{},
 		props:['pageChange','refreshFun'],
